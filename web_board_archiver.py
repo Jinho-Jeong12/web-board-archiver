@@ -722,6 +722,22 @@ def main():
     save_dir: Path = SITE_CONFIG["save_dir"]
     save_dir.mkdir(parents=True, exist_ok=True)
 
+    # 저장 경로 확인
+    print("─" * 62)
+    print()
+    print(f"  수집된 게시물은 아래 경로에 저장됩니다:")
+    print()
+    print(f"    {save_dir.resolve()}")
+    print()
+    while True:
+        confirm = input("  확인했으면 OK 를 입력하세요: ").strip()
+        if confirm.upper() == "OK":
+            break
+        print("  → OK 를 입력해주세요.")
+    print()
+    print("─" * 62)
+    print()
+
     log.info("Web Board Archiver 시작")
     log.info(f"사이트 타입: {SITE_CONFIG['type']}")
     log.info(f"저장 경로: {save_dir}")
