@@ -2,6 +2,7 @@
 Web Board Archiver
 웹 게시판 HTML 아카이버
 """
+from __future__ import annotations
 
 # ─── 의존성 자동 설치 ─────────────────────────────────────────────────────────
 import sys
