@@ -73,9 +73,9 @@
   4. 사전 준비 — Python 설치
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  이 스크립트는 Python 3.10 이상에서 동작합니다.
+  이 스크립트는 Python 3.8 이상에서 동작합니다.
 
-  [설치 방법]
+  [Windows — 설치 방법]
   1. https://www.python.org/downloads/ 에 접속합니다.
   2. "Download Python 3.x.x" 버튼을 클릭합니다.
   3. 설치 프로그램을 실행합니다.
@@ -83,6 +83,24 @@
              반드시 체크한 뒤 Install Now를 클릭하세요!
              체크하지 않으면 스크립트가 실행되지 않습니다.
   4. 설치가 완료되면 이 스크립트를 실행하면 됩니다.
+
+  [macOS — 주의사항]
+  ⚠ macOS는 실행 환경에 따라 추가 작업이 필요할 수 있습니다.
+
+  · macOS에는 Python이 기본으로 설치되어 있지 않거나, 구버전(2.x)만 있을 수
+    있습니다. 반드시 python.org에서 최신 버전을 받아 직접 설치하세요.
+      → https://www.python.org/downloads/macos/
+
+  · 설치 후 터미널에서 실행 시 python 대신 python3 명령을 사용하세요.
+      → python3 web_board_archiver.py "URL"
+
+  · 터미널 실행 방법:
+      1. Finder → 응용 프로그램 → 유틸리티 → 터미널 실행
+      2. 스크립트가 있는 폴더로 이동: cd /경로/web_board_archiver 폴더
+      3. python3 web_board_archiver.py 실행
+
+  · macOS에서는 더블클릭으로 .py 파일을 실행할 수 없습니다.
+    반드시 터미널에서 실행하세요.
 
   [패키지 자동 설치]
   스크립트를 처음 실행하면 필요한 패키지(requests, beautifulsoup4, lxml)를
@@ -288,6 +306,14 @@
   Q. 다른 컴퓨터에서도 쓸 수 있나요?
   A. Python만 설치되어 있으면 됩니다. 패키지는 첫 실행 시 자동 설치됩니다.
      archiver_ids_cache.txt 파일을 함께 복사하면 목록 재수집도 건너뜁니다.
+
+  Q. macOS에서 실행이 안 돼요.
+  A. 아래 순서로 확인하세요.
+     1. python.org에서 Python 최신 버전을 직접 설치했는지 확인하세요.
+        macOS 기본 Python은 구버전이거나 없을 수 있습니다.
+     2. 터미널에서 python 대신 python3 명령으로 실행하세요.
+          python3 web_board_archiver.py "URL"
+     3. .py 파일을 더블클릭으로는 실행할 수 없습니다. 터미널을 이용하세요.
 
   Q. 갤러리를 바꾸려면 어떻게 하나요?
   A. URL을 바꾸고, archiver_ids_cache.txt 파일을 삭제한 뒤 재실행하세요.
