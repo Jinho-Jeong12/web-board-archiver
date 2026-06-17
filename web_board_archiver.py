@@ -5,7 +5,11 @@ Web Board Archiver
 
 # ─── 의존성 자동 설치 ─────────────────────────────────────────────────────────
 import sys
+import os
 import subprocess
+
+# 스크립트 파일 위치를 기준으로 작업 경로 고정 (더블클릭 실행 시 CWD 오류 방지)
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 REQUIRED = ["requests", "beautifulsoup4", "lxml"]
 
@@ -49,6 +53,7 @@ def _install_deps():
             print("  3. 설치 시 반드시 'Add Python to PATH' 체크!")
             print("  4. 설치 후 이 스크립트를 다시 실행하세요.")
             print("  ─────────────────────────────────────────────────")
+            input("\n  아무 키나 누르면 종료합니다...")
             sys.exit(1)
 
     print("\n  모든 패키지 설치 완료. 아카이버를 시작합니다...\n")
@@ -789,4 +794,19 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\n  사용자에 의해 중단되었습니다.")
+    except Exception as e:
+        print("\n" + "=" * 62)
+        print("  [오류] 예기치 않은 문제가 발생했습니다:")
+        print(f"  {type(e).__name__}: {e}")
+        print()
+        print("  archiver.log 파일을 확인하거나, 아래 오류 내용을")
+        print("  개발자에게 전달해 주세요.")
+        print("=" * 62)
+        import traceback
+        traceback.print_exc()
+    finally:
+        input("\n  아무 키나 누르면 창을 닫습니다...")
